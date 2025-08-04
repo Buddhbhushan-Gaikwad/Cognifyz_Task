@@ -1,0 +1,2 @@
+This is a secret message for testing encryption.
+Make sure to decrypt this correctly!
