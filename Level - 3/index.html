@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat</title>
+</head>
+<body>
+    <h2>Browser Chat</h2>
+    <div id="chat" style="border:1px solid #000; height:200px; overflow:auto; padding:5px;"></div>
+    <input type="text" id="msg" placeholder="Type message" />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        let ws = new WebSocket("ws://localhost:8080");
+        ws.onmessage = (event) => {
+            let chat = document.getElementById("chat");
+            chat.innerHTML += "<div>" + event.data + "</div>";
+        };
+        function sendMessage() {
+            let msg = document.getElementById("msg").value;
+            ws.send(msg);
+            document.getElementById("msg").value = "";
+        }
+    </script>
+</body>
+</html>
