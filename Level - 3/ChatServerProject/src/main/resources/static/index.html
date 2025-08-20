@@ -6,25 +6,79 @@
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        #chat { border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px; }
-        #message { width: 80%; }
-        #send { width: 15%; }
-        #username { margin-bottom: 10px; }
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color:#0c787869;
+
+        }
+        #chat {     border: 1px solid #ccc;
+            height: 300px;
+            width: 70%;
+            overflow-y: scroll;
+            padding: 10px;
+            background: white;
+            color: #2e2b2b;
+        }
+        #message {
+            width: 23%;
+            overflow-y: scroll;
+            height: 107px;
+            position: fixed;
+            top: 77px;
+            right: 53px;
+
+        }
+
+        #send {
+            width: 11%;
+            position: fixed;
+            top: 209px;
+            padding: 6px;
+            right: 220px;
+            font-size: 22px;
+            border-radius: 17px;
+        }
+        #username {
+            margin-bottom: 10px;
+            position: fixed;
+            top: 22px;
+            right: 96px;
+            padding: 8px;
+
+        }
+        label{
+            position: fixed;
+            top: 27px;
+            right: 288px;
+            font-family: bold;
+            font-size: 26px;
+        }
+
     </style>
 </head>
 <body>
 
 <h2>Spring Boot WebSocket Chat</h2>
 
-<div>
-    <label>Username: </label><input type="text" id="username" placeholder="Enter your name" />
-</div>
+<section>
 
-<div id="chat"></div>
+    <div>
+        <label>Username: </label><input type="text" id="username" placeholder="Enter your name" />
+    </div>
 
-<input type="text" id="message" placeholder="Type your message here..." />
-<button id="send">Send</button>
+
+</section>
+
+    <div id="chat">
+
+        <textarea type="text" id="message" placeholder="Type your message here..."></textarea>
+    <button id="send">Send</button>
+
+    </div>
 
 <script>
     let stompClient = null;
